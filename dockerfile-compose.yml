@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    ports:
+      - 8080:8080
+      - 4001:4001
+      - 5001:5001
+    volumes:
+      - /data/ipfs:/data/ipfs
+  #ipfs-cluster:
+   # image: ipfs/ipfs-cluster:v0.3.0
+    #ports:
+     # - 8080:8080
+      #- 4001:4001
+      #- 5001:5001
+    #volumes:
+     # - ./cluster/peer1/config:/data/ipfs-cluster
