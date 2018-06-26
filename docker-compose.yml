@@ -9,8 +9,6 @@ services:
       - 5001:5001
     volumes:
       - /data/ipfs:/data/ipfs
-    networks:
-      - overlay
       
   ipfs-cluster:
     image: ipfs/ipfs-cluster:v0.4.0
@@ -19,11 +17,3 @@ services:
       - 9094:9094
     volumes:
       - /data/ipfs-cluster:/data/ipfs-cluster
-    networks:
-      - overlay
-
-  
-  networks:
-      overlay:
-        external:
-            name: ExternalNetwork
