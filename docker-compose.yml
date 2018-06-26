@@ -1,4 +1,4 @@
-version: '3.3'
+version: '2'
 services:
   ipfs:
     image: ipfs/go-ipfs:latest
@@ -10,7 +10,7 @@ services:
       - /data/ipfs:/data/ipfs
     networks:
       - overlay
-      
+
   ipfs-cluster:
     image: ipfs/ipfs-cluster:v0.4.0
     ports:
