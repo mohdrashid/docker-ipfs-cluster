@@ -1,4 +1,4 @@
-version: '2'
+version: '3.3'
 services:
   ipfs:
     image: ipfs/go-ipfs:latest
@@ -8,6 +8,9 @@ services:
       - 5001:5001
     volumes:
       - /data/ipfs:/data/ipfs
+    networks:
+      - overlay
+      
   ipfs-cluster:
     image: ipfs/ipfs-cluster:v0.4.0
     ports:
@@ -15,3 +18,8 @@ services:
       - 9094:9094
     volumes:
       - /data/ipfs-cluster:/data/ipfs-cluster
+    networks:
+      - overlay
+
+  networks:
+    overlay:
