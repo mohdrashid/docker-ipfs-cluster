@@ -1,4 +1,5 @@
 version: '2'
+
 services:
   ipfs:
     image: ipfs/go-ipfs:latest
@@ -21,7 +22,10 @@ services:
     networks:
       - overlay
 
+  
   networks:
-    overlay:
-      external:
-        name: bridge
+      overlay:
+        external:
+            name: ExternalNetwork
+      db-net:
+        internal: true
