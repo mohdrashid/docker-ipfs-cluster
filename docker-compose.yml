@@ -23,3 +23,5 @@ services:
 
   networks:
     overlay:
+      external:
+        name: bridge
