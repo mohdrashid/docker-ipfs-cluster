@@ -11,9 +11,6 @@ services:
   ipfs-cluster:
     image: ipfs/ipfs-cluster:v0.4.0
     ports:
-      - 8080:8080
-      - 4001:4001
-      - 5001:5001
       - 9096:9096
       - 9094:9094
     volumes:
