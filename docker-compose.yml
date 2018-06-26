@@ -5,6 +5,8 @@ services:
     image: ipfs/go-ipfs:latest
     ports:
       - 8080:8080
+      - 8081:8081
+      - 4002:4002
       - 4001:4001
       - 5001:5001
     volumes:
@@ -14,6 +16,7 @@ services:
     image: ipfs/ipfs-cluster:v0.4.0
     ports:
       - 9096:9096
+      - 9095:9095
       - 9094:9094
     volumes:
       - /data/ipfs-cluster:/data/ipfs-cluster
