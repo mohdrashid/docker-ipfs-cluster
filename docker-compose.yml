@@ -27,5 +27,3 @@ services:
       overlay:
         external:
             name: ExternalNetwork
-      db-net:
-        internal: true
