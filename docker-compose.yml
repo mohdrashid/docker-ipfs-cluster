@@ -12,5 +12,6 @@ services:
     image: ipfs/ipfs-cluster:v0.4.0
     ports:
       - 9096:9096
+      - 9094:9094
     volumes:
       - /data/ipfs-cluster:/data/ipfs-cluster
