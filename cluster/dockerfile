@@ -1,0 +1,27 @@
+FROM golang:1.10-stretch
+
+ENV IPFS_CLUSTER_VERSION 0.4.0
+
+RUN wget https://dist.ipfs.io/ipfs-cluster-service/v${IPFS_CLUSTER_VERSION}/ipfs-cluster-service_v${IPFS_CLUSTER_VERSION}_linux-amd64.tar.gz
+
+RUN tar -xvzf ipfs-cluster-service_v${IPFS_CLUSTER_VERSION}_linux-amd64.tar.gz
+
+EXPOSE 9094
+EXPOSE 9095
+EXPOSE 9096
+
+ENV IPFS_CLUSTER_PATH /data/ipfs-cluster
+
+RUN mkdir -p ${IPFS_CLUSTER_PATH}
+
+VOLUME ${IPFS_CLUSTER_PATH}
+
+RUN cd ipfs-cluster-service && mv ipfs-cluster-service /cluster
+
+RUN /cluster init
+
+ADD /cluster/run.sh run.sh
+
+RUN chmod +x run.sh
+
+CMD ["./run.sh"]

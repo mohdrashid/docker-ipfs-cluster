@@ -1,19 +1,24 @@
-version: '2'
-
+version: '3'
+#docker exec ee5a36ab61a0 ipfs bootstrap rm --all
 services:
   ipfs:
-    image: ipfs/go-ipfs:latest
+    build:
+      context: .
+      dockerfile: ipfs/dockerfile
     ports:
       - 8080:8080
-      - 8081:8081
       - 4002:4002
       - 4001:4001
       - 5001:5001
     volumes:
       - /data/ipfs:/data/ipfs
-      
-  ipfs-cluster:
-    image: ipfs/ipfs-cluster:v0.4.0
+
+  cluster:
+    build:
+      context: .
+      dockerfile: cluster/dockerfile
+    depends_on:
+      - ipfs
     ports:
       - 9096:9096
       - 9095:9095
