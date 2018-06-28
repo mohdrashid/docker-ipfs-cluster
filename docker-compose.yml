@@ -13,7 +13,10 @@ services:
       - /data/ipfs:/data/ipfs
 
   cluster:
-    image: ipfs/ipfs-cluster
+    build:
+      context: .
+      dockerfile: individual/cluster/dockerfile
+    #image: ipfs/ipfs-cluster
     depends_on:
       - ipfs
     network_mode: "host"

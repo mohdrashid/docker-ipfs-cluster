@@ -18,7 +18,7 @@ VOLUME ${IPFS_CLUSTER_PATH}
 
 RUN cd ipfs-cluster-service && mv ipfs-cluster-service /cluster
 
-ADD /cluster/run.sh run.sh
+ADD /individual/cluster/run.sh run.sh
 
 RUN chmod +x run.sh
 
